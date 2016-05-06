@@ -74,24 +74,6 @@ fabric.properties
 # modules.xml
 
 
-### PlayFramework ###
-# Ignore Play! working directory #
-bin/
-/db
-.eclipse
-/lib/
-/logs/
-/modules
-/project/target
-/target
-tmp/
-test-result
-server.pid
-*.eml
-/dist/
-.cache
-
-
 ### CoffeeScript ###
 *.js
 
@@ -106,5 +88,3 @@ src_managed/
 project/boot/
 .history
 .cache
-
-
