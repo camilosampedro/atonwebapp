@@ -37,7 +37,13 @@ class LaboratoryController @Inject()(laboratorioService: LaboratoryService, val 
     Ok("Hello %s".format(userName))
   }
 
-  def deleteLaboratorio(id: Long) = Action.async { implicit request =>
+  def deleteLaboratorio(id: Long) = UserAwareAction { implicit request =>
+
+    val userName = request.user match {
+      case Some(user) => user.fullName
+      case _ => "invitado"
+    }
+
     laboratorioService.deleteLaboratory(id) map { res =>
       Redirect(routes.LaboratoryController.listAll())
     }
